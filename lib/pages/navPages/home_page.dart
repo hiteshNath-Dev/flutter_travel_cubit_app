@@ -57,8 +57,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 unselectedLabelColor: Colors.grey,
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
-                indicator:
-                    CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                indicator: const CircleTabIndicator(
+                    color: AppColors.mainColor, radius: 4),
                 tabs: const [
                   Tab(
                     text: "Places",
@@ -93,28 +93,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 class CircleTabIndicator extends Decoration {
   final Color color;
-  double radius;
-  CircleTabIndicator({required this.color, required this.radius});
+  final double radius;
+  const CircleTabIndicator({required this.color, required this.radius});
 
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    // TODO: implement createBoxPainter
-    throw _CirclePainter(color: color, radius: radius);
+    return _CirclePainter(color: color, radius: radius);
   }
 }
 
 class _CirclePainter extends BoxPainter {
   final Color color;
-  double radius;
+  final double radius;
   _CirclePainter({required this.color, required this.radius});
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    // TODO: implement paint
-    Paint paint = Paint();
+    final paint = Paint();
     paint.color = color;
     paint.isAntiAlias = true;
     final Offset circleOffset = Offset(configuration.size!.width / 2, 0);
-    canvas.drawCircle(offset, radius, paint);
+
+    canvas.drawCircle(circleOffset, radius, paint);
   }
 }
