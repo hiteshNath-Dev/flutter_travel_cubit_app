@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_cubit_app/misc/colors.dart';
 import 'package:flutter_travel_cubit_app/widgets/app_large_text.dart';
+import 'package:flutter_travel_cubit_app/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -73,16 +74,63 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
           ),
-          SizedBox(
+          Container(
             height: 300,
             width: double.maxFinite,
+            padding: const EdgeInsets.only(left: 20),
             child: TabBarView(
               controller: tabController,
-              children: const [
-                Text("Places"),
-                Text("Inspiration"),
-                Text("Emotions"),
+              children: [
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Container(
+                    width: 200,
+                    height: 300,
+                    margin: const EdgeInsets.only(right: 15, top: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: const DecorationImage(
+                            image: AssetImage("img/mountain.png"),
+                            fit: BoxFit.cover)),
+                  ),
+                ),
+                const Text("Inspiration"),
+                const Text("Emotions"),
               ],
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              children: [
+                AppLargeText(
+                  text: "Explore more",
+                  size: 22,
+                ),
+                const Expanded(
+                  child: SizedBox(),
+                ),
+                AppText(
+                  text: "See all",
+                  color: AppColors.textColor1,
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 100,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+              itemBuilder: (context, index) => Column(),
             ),
           )
         ],
