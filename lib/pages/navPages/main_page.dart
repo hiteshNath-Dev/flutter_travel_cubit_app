@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_cubit_app/pages/navPages/bar_item_page.dart';
-import 'package:flutter_travel_cubit_app/pages/navPages/home_page.dart';
+import 'package:flutter_travel_cubit_app/pages/home_page.dart';
 import 'package:flutter_travel_cubit_app/pages/navPages/my_page.dart';
 import 'package:flutter_travel_cubit_app/pages/navPages/search_page.dart';
 
