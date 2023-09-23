@@ -40,13 +40,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: AppLargeText(text: "Discover")),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           Container(
             child: Align(
@@ -123,14 +123,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Container(
-            height: 100,
+            height: 120,
             width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20),
             child: ListView.builder(
-              itemBuilder: (context, index) => Column(),
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Container(
+                margin: const EdgeInsets.only(right: 50),
+                child: Column(children: [
+                  Container(
+                    height: 80,
+                    width: 80,
+                    // margin: const EdgeInsets.only(right: 50),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                            image: AssetImage("img/mountain.png"),
+                            fit: BoxFit.cover)),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    child: AppText(
+                      text: "Kayaking",
+                      color: AppColors.textColor2,
+                    ),
+                  )
+                ]),
+              ),
             ),
           )
         ],
